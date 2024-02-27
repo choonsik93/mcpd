@@ -9,12 +9,12 @@ This is the code for Unsupervised 3D Link Segmentation of Articulated Objects wi
 This codebase is implemented using [CPD](https://github.com/siavashk/pycpd).
 
 ## Setup
-The code can be run under any environment with Python 3.8 and above.
+The code can be run under any environment with Python 3.7 and above.
 (It may run with lower versions, but we have not tested it).
 
 We recommend using [Miniconda](https://docs.conda.io/en/latest/miniconda.html) and setting up an environment:
 
-    conda create --name nerfies python=3.8
+    conda create --name mcpd python=3.7
 
 Next, install the required packages:
 
