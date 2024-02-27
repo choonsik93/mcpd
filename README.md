@@ -2,9 +2,8 @@
 
 This is the code for Unsupervised 3D Link Segmentation of Articulated Objects with a Mixture of Coherent Point Drift.
 
- * [Project Page](https://nerfies.github.io)
- * [Paper](https://arxiv.org/abs/2011.12948)
- * [Video](https://www.youtube.com/watch?v=MrKrnHhk8IA)
+ * [Project Page](https://choonsik93.github.io/mcpd.github.io)
+ * [Paper](https://ieeexplore.ieee.org/document/9790354)
+ * [Video](https://www.youtube.com/watch?v=52Rqxs6682A)
  
-This codebase is implemented using [JAX](https://github.com/google/jax), 
-building on [JaxNeRF](https://github.com/google-research/google-research/tree/master/jaxnerf).
+This codebase is implemented using [CPD](https://github.com/siavashk/pycpd).
