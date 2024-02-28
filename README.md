@@ -51,6 +51,12 @@ from mcpd.articulated_registration import ArtRegistration
 import numpy as np
 
 # create 3D source point cloud and target point clouds
+# M: the number of points in the point cloud
+# T: the number of target point clouds
+# N:  the number of points in the each target point cloud
+M = 2048
+N = 2048
+T = 5
 source = np.random.randn(M, 3)
 target = np.random.randn(T, N, 3)
 
@@ -62,9 +68,9 @@ vis_interval = 1000
 torch = True
 
 # running mcpd and obtain the optimized results
-R:
-t:
-Z: 
+# R: [T, K, 3, 3] the optimized rotations for each part and each target point cloud
+# t: [T, K, 3] the optimized translations for each part and each target point cloud
+# Z: [M, K] the optimized decomposition matrix of the source point cloud
 reg = ArtRegistration(source, target, num_mixture, max_iterations=num_iterations, vis_interval=vis_interval, vis=vis, gpu=torch)
 TY, params = reg.register()
 R, t, Z = params
