@@ -19,3 +19,21 @@ We recommend using [Miniconda](https://docs.conda.io/en/latest/miniconda.html) a
 Next, install the required packages:
 
     pip install -r requirements.txt
+
+## Training
+After preparing a dataset, you can train a Nerfie by running:
+
+    export DATASET_PATH=/path/to/dataset
+    export EXPERIMENT_PATH=/path/to/save/experiment/to
+    python train.py \
+        --data_dir $DATASET_PATH \
+        --base_folder $EXPERIMENT_PATH \
+        --gin_configs configs/test_vrig.gin
+ 
+To plot telemetry to Tensorboard and render checkpoints on the fly, also
+launch an evaluation job by running:
+
+    python eval.py \
+        --data_dir $DATASET_PATH \
+        --base_folder $EXPERIMENT_PATH \
+        --gin_configs configs/test_vrig.gin
