@@ -99,6 +99,7 @@ if __name__ == "__main__":
     parser.add_argument("--datadir", type=str, default="data/glasses0")
     parser.add_argument("--savedir", type=str, default="results/glasses0")
     parser.add_argument("--save", action='store_true')
+    parser.add_argument("--torch", action='store_true')
 
     args = parser.parse_args(sys.argv[1:])
 
@@ -109,6 +110,7 @@ if __name__ == "__main__":
     datadir = args.datadir
     savedir = args.savedir
     save = args.save
+    torch = args.torch
 
     data_list = os.listdir(datadir)
     source_point_path, target_point_path = os.path.join(datadir, data_list[0]), os.path.join(datadir, data_list[1])
@@ -118,7 +120,7 @@ if __name__ == "__main__":
     ys = source_point_npz["sampled_points"]
     xs = target_point_npz["sampled_points"]
 
-    reg = ArtRegistration(ys, xs, num_mixture, max_iterations=num_iterations, vis_interval=vis_interval, vis=vis, gpu=True)
+    reg = ArtRegistration(ys, xs, num_mixture, max_iterations=num_iterations, vis_interval=vis_interval, vis=vis, gpu=torch)
     callback = partial(visualize_multiple_images)
     TY, params = reg.register(callback)
     
