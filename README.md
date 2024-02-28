@@ -21,7 +21,7 @@ Next, install the required packages:
     pip install -r requirements.txt
 
 ## Running with example data
-After preparing a dataset, you can train a Nerfie by running:
+We provide the running code using an example point clouds.
 
     python train.py \
         --num_mixture 5 \
