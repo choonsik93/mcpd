@@ -29,8 +29,8 @@ After preparing a dataset, you can train a Nerfie by running:
         --vis \
         --vis_interval 500 \
         --datadir "data/glasses0" \
-        --savedir "results/glasses0" \
         --save \
+        --savedir "results/glasses0" \
         --torch
         
 To plot telemetry to Tensorboard and render checkpoints on the fly, also
