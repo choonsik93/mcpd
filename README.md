@@ -34,5 +34,11 @@ We provide the running code using an example point clouds.
         --torch
 
 Here's what each option means
-* [이름](링크) - 무엇 무엇을 했어요
-* [Name](Link) - Create README.md
+* num_mixture - 무엇 무엇을 했어요
+* num_ierations - Create README.md
+* vis - 무엇 무엇을 했어요
+* vis_interval - Create README.md
+* datadir - Create README.md
+* save -
+* savedir -
+* torch -
