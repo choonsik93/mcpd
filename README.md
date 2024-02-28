@@ -51,8 +51,8 @@ from mcpd.articulated_registration import ArtRegistration
 import numpy as np
 
 # create 3D source point cloud and target point clouds
-target = np.array([[0, 0], [0, 1], [1, 0], [1, 1], [0.5, 0], [0, 0.5]])
-target = np.array([[0, 0], [0, 1], [1, 0], [1, 1], [0.5, 0], [0, 0.5]])
+source = np.random.randn(M, 3)
+target = np.random.randn(T, N, 3)
 
 # set parameters
 num_mixture = 5
@@ -61,7 +61,12 @@ vis = False
 vis_interval = 1000
 torch = True
 
+# running mcpd and obtain the optimized results
+R:
+t:
+Z: 
 reg = ArtRegistration(source, target, num_mixture, max_iterations=num_iterations, vis_interval=vis_interval, vis=vis, gpu=torch)
 TY, params = reg.register()
+R, t, Z = params
 ```
   
