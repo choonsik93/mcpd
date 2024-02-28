@@ -32,3 +32,7 @@ We provide the running code using an example point clouds.
         --save \
         --savedir "results/glasses0" \
         --torch
+
+Here's what each option means
+* [이름](링크) - 무엇 무엇을 했어요
+* [Name](Link) - Create README.md
