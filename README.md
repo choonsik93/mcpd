@@ -34,11 +34,11 @@ We provide the running code using an example point clouds.
         --torch
 
 Here's what each option means
-* num_mixture - 무엇 무엇을 했어요
-* num_ierations - Create README.md
-* vis - 무엇 무엇을 했어요
-* vis_interval - Create README.md
-* datadir - Create README.md
-* save -
-* savedir -
-* torch -
+* num_mixture - the number of maximum parts
+* num_ierations - the number of maximum EM steps
+* vis - whether to visualize point clouds during optimization
+* vis_interval - if vis is True, it visualize point clouds in every vis_interval EM steps 
+* datadir - the path of point clouds data
+* save - whether to save the optimized results
+* savedir - the path of saved results
+* torch - optimization can be done using only numpy when torch is false, and matrix computation can be done using pytorch when torch is true (much faster)
