@@ -47,34 +47,21 @@ Here's what each option means
 Basic usage includes providing any of the registration methods with 2 arrays that are MxN & BxN. E.g., they can have different numbers of points (M & B) but must have the same number of dimensions per point (N).
 
 ```python
-from pycpd import RigidRegistration
+from mcpd.articulated_registration import ArtRegistration
 import numpy as np
 
-# create 2D target points (you can get these from any source you desire)
-# creating a square w/ 2 additional points. 
+# create 3D source point cloud and target point clouds
 target = np.array([[0, 0], [0, 1], [1, 0], [1, 1], [0.5, 0], [0, 0.5]])
-print('Target Points: \n', target)
+target = np.array([[0, 0], [0, 1], [1, 0], [1, 1], [0.5, 0], [0, 0.5]])
 
-# create a translation to apply to the target for testing the registration
-translation = [1, 0]
+# set parameters
+num_mixture = 5
+num_iterations = 1000
+vis = False
+vis_interval = 1000
+torch = True
 
-# create a fake source by adding a translation to the target.
-# in a real use, you would load the source points from a file or other source. 
-# the only requirement is that this array also be 2-dimensional and that the 
-# second dimension be the same length as the second dimension of the target array.
-source = target + translation
-print('Source Points: \n', source)
-
-# create a RigidRegistration object
-reg = RigidRegistration(X=target, Y=source)
-# run the registration & collect the results
-TY, (s_reg, R_reg, t_reg) = reg.register()
-
-# TY is the transformed source points
-# the values in () are the registration parameters.
-# In this case of rigid registration they are:
-#     s_reg the scale of the registration
-#     R_reg the rotation matrix of the registration
-#     t_reg the translation of the registration
+reg = ArtRegistration(source, target, num_mixture, max_iterations=num_iterations, vis_interval=vis_interval, vis=vis, gpu=torch)
+TY, params = reg.register()
 ```
   
