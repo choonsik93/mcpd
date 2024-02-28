@@ -42,3 +42,38 @@ Here's what each option means
 * save - whether to save the optimized results
 * savedir - the path of saved results
 * torch - optimization can be done using only numpy when torch is false, and matrix computation can be done using pytorch when torch is true (much faster)
+
+## Basic Usage
+Basic usage includes providing any of the registration methods with 2 arrays that are MxN & BxN. E.g., they can have different numbers of points (M & B) but must have the same number of dimensions per point (N).
+
+.. code-block:: python
+
+  from pycpd import RigidRegistration
+  import numpy as np
+
+  # create 2D target points (you can get these from any source you desire)
+  # creating a square w/ 2 additional points. 
+  target = np.array([[0, 0], [0, 1], [1, 0], [1, 1], [0.5, 0], [0, 0.5]])
+  print('Target Points: \n', target)
+
+  # create a translation to apply to the target for testing the registration
+  translation = [1, 0]
+
+  # create a fake source by adding a translation to the target.
+  # in a real use, you would load the source points from a file or other source. 
+  # the only requirement is that this array also be 2-dimensional and that the 
+  # second dimension be the same length as the second dimension of the target array.
+  source = target + translation
+  print('Source Points: \n', source)
+
+  # create a RigidRegistration object
+  reg = RigidRegistration(X=target, Y=source)
+  # run the registration & collect the results
+  TY, (s_reg, R_reg, t_reg) = reg.register()
+
+  # TY is the transformed source points
+  # the values in () are the registration parameters.
+  # In this case of rigid registration they are:
+  #     s_reg the scale of the registration
+  #     R_reg the rotation matrix of the registration
+  #     t_reg the translation of the registration
