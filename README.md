@@ -46,9 +46,8 @@ Here's what each option means
 ## Basic Usage
 Basic usage includes providing any of the registration methods with 2 arrays that are MxN & BxN. E.g., they can have different numbers of points (M & B) but must have the same number of dimensions per point (N).
 
-.. code-block:: python
-
-  from pycpd import RigidRegistration
+```python
+from pycpd import RigidRegistration
   import numpy as np
 
   # create 2D target points (you can get these from any source you desire)
@@ -77,3 +76,5 @@ Basic usage includes providing any of the registration methods with 2 arrays tha
   #     s_reg the scale of the registration
   #     R_reg the rotation matrix of the registration
   #     t_reg the translation of the registration
+```
+  
