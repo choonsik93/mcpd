@@ -20,16 +20,14 @@ Next, install the required packages:
 
     pip install -r requirements.txt
 
-## Training
+## Running with example data
 After preparing a dataset, you can train a Nerfie by running:
 
-    export DATASET_PATH=/path/to/dataset
-    export EXPERIMENT_PATH=/path/to/save/experiment/to
     python train.py \
         --data_dir $DATASET_PATH \
         --base_folder $EXPERIMENT_PATH \
         --gin_configs configs/test_vrig.gin
- 
+        
 To plot telemetry to Tensorboard and render checkpoints on the fly, also
 launch an evaluation job by running:
 
