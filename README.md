@@ -24,9 +24,14 @@ Next, install the required packages:
 After preparing a dataset, you can train a Nerfie by running:
 
     python train.py \
-        --data_dir $DATASET_PATH \
-        --base_folder $EXPERIMENT_PATH \
-        --gin_configs configs/test_vrig.gin
+        --num_mixture 5 \
+        --num_iterations 1000 \
+        --vis \
+        --vis_interval 500 \
+        --datadir "data/glasses0" \
+        --savedir "results/glasses0" \
+        --save \
+        --torch
         
 To plot telemetry to Tensorboard and render checkpoints on the fly, also
 launch an evaluation job by running:
